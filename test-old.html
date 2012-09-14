@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+
+<html>
+
+
+
+<head>
+
+	<!-- include the Tools -->
+	<script src="http://cdn.jquerytools.org/1.2.5/full/jquery.tools.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="scrollable-navig.css" />
+    <link href="styles.css" rel="stylesheet" type="text/css" />
+
+
+</head>
+
+<body>
+
+
+
+<!-- root element for the main scrollable -->
+<div id="display-main">
+
+	<!-- root element for pages -->
+
+	<div id="display-pages">
+
+		<!-- page #1 -->
+		<div class="display-page">
+			<div class="scrollable">
+					<!-- items  -->
+					<div class="display-item">
+						<img src="images/project-folder/project_thumb_1.png" class="thumb">
+						<img src="images/project-folder/project_thumb_2.png" class="thumb">
+						<img src="images/project-folder/project_thumb_3.png" class="thumb">
+						<img src="images/project-folder/project_thumb_4.png" class="thumb">
+						<img src="images/project-folder/project_thumb_5.png" class="thumb">
+						<img src="images/project-folder/project_thumb_6.png" class="thumb">
+						<img src="images/project-folder/project_thumb_7.png" class="thumb">
+						<img src="images/project-folder/project_thumb_8.png" class="thumb">
+						<img src="images/project-folder/project_thumb_9.png" class="thumb">
+						<img src="images/project-folder/project_thumb_10.png" class="thumb">
+						<img src="images/project-folder/project_thumb_11.png" class="thumb">
+						<img src="images/project-folder/project_thumb_12.png" class="thumb">
+					</div>
+			</div>
+		</div>
+		<!-- page #2 -->
+		<div class="display-page">
+
+
+			<!-- inner scrollable #2 -->
+			<div class="scrollable">
+
+				<!-- root element for scrollable items -->
+				<div class="display-items">
+
+					<!-- items on the second page -->
+					<div class="display-item">
+						<img src="images/project-folder/project_4.png" />
+					</div>
+					<div class="display-item">
+						<img src="images/project-folder/project_4_d1.png" />
+					</div>
+					<div class="display-item">
+						<img src="images/project-folder/project_4_d2.png" />
+					</div>
+					<div class="display-item">
+						<img src="images/project-folder/project_4_d3.png" />
+					</div>
+				</div>
+
+			</div>
+            			<div class="navi"></div>
+
+
+		</div>
+        		<!-- page #3 -->
+		<div class="display-page">
+
+			<!-- inner scrollable #2 -->
+			<div class="scrollable">
+
+				<!-- root element for scrollable items -->
+				<div class="display-items">
+
+					<!-- items on the second page -->
+					<div class="display-item">
+						<img src="images/project-folder/project_4.png" />
+					</div>
+					<div class="display-item">
+						<img src="images/project-folder/project_4_d1.png" />
+					</div>
+					<div class="display-item">
+						<img src="images/project-folder/project_4_d2.png" />
+					</div>
+					<div class="display-item">
+						<img src="images/project-folder/project_4_d3.png" />
+					</div>
+				</div>
+
+			</div>
+			<div class="navi"></div>
+
+		</div>
+
+
+
+	</div>
+
+</div>
+<!-- main navigator -->
+<div class="column-displaynav">
+											<!-- main navigator -->
+											<ul id="main_navi">
+												<li class="active">
+													<img src="images/seeall.png">
+												</li>
+												<li>
+        											<img src="images/previousalbum.png">
+												</li>
+												<li>
+													<img src="images/nextalbum.png">		
+												</li>
+												</ul>
+                                    	</div>
+<script>
+// What is $(document).ready ? See: http://flowplayer.org/tools/documentation/basics.html#document_ready
+$(document).ready(function() {
+
+
+
+// main vertical scroll
+$("#display-main").scrollable({
+
+	// basic settings
+	vertical: true,
+
+	// up/down keys will always control this scrollable
+	keyboard: 'static',
+
+	// assign left/right keys to the actively viewed scrollable
+	onSeek: function(event, i) {
+		horizontal.eq(i).data("scrollable").focus();
+	}
+
+// main navigator (thumbnail images)
+}).navigator("#main_navi");
+
+// horizontal scrollables. each one is circular and has its own navigator instance
+var horizontal = $(".scrollable").scrollable({ circular: true }).navigator(".navi");
+
+
+// when page loads setup keyboard focus on the first horzontal scrollable
+horizontal.eq(0).data("scrollable").focus();
+
+});
+</script>
+
+
+</body>
+
+</html>

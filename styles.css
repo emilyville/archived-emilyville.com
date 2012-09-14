@@ -1,0 +1,765 @@
+@charset "UTF-8";
+/* CSS Document */
+
+html {
+	background:url(images/top.gif) repeat-x #f9f9f9;
+	/*background: url(images/top.gif) none repeat-x scroll 0 0 #f9f9f9;
+    /*border-top: 6px solid #339999;*/
+
+}
+.clear
+{
+    clear: both;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    float: none !important;
+}
+
+body {
+/*	background:#f8f8f8;
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:12px;
+/*	padding-left: 60px;*/
+/*	padding-top: 0px;
+	border:0 none;
+	outline:0 none;
+	padding:0;*/
+	/*margin-left:auto;
+	margin-right:auto;	
+	width:1000px;*/
+/*	padding-bottom:150px;*/
+	margin: 0;
+    padding: 0;
+}
+
+a img {
+	border:medium none;
+}
+a {
+	text-decoration:none;
+	color:#339999;
+	border:none;
+	}
+
+.parent-element {
+	  background:url(images/sprite.png);
+}
+
+#updates { 
+	background:url(images/sprite.png) 0px 0px no-repeat; 
+	}
+#rss { 
+	background: url(images/sprite.png) 0px -30px no-repeat; 
+	}
+#sketchbooks { 
+	background: url(images/sprite.png) 0px -60px no-repeat; 
+	}
+.projects { 
+	background: url(images/sprite.png) 0px -90px no-repeat; 
+	}	
+#contact { 
+	background: url(images/sprite.png) 0px -120px no-repeat; 
+	}			
+#littleme { 
+	background: url(images/sprite.png) 0px -150px no-repeat; 
+	}
+	
+	
+#header {
+	outline:medium none;
+	position: absolute;
+    top: 6px;
+    z-index: 5;
+}
+
+/*accordion sections and columns */
+.section {
+	border-bottom:1px dotted #666666;
+	clear:both;
+	float:left;
+	overflow:hidden;
+	padding:5px 0;
+	width:900px;
+}
+.btnOpen {
+	background:url(images/expand.png) no-repeat scroll;
+}
+.btnClose {
+	background:url(images/expand.png) no-repeat scroll;
+}
+.btnOpen, .btnClose, .btnOpenOver {
+	float:right;
+	height:24px;
+	overflow:hidden;
+	text-indent:-9999px;
+	width:20px;
+	margin-top:3px;
+	margin-right:10px;
+	position:relative;
+	display:block;
+	
+}
+
+.section-list {
+	margin: 0px;
+	padding: 10px;
+	width: 900px;
+}
+.section-head {
+	cursor: pointer;
+	position: relative;
+	border-bottom:1px dotted #666666;
+	margin:1px;
+	clear:both;
+	float:left;
+	overflow:hidden;
+	padding:3px 0;
+	width:900px;
+	font-family:Verdana, Geneva, sans-serif;
+	color:#666666;
+	text-indent: 25px;
+	height:24px;
+	}
+
+#firstsection {
+	margin-top:160px;
+}
+
+.section-body {
+	padding: 5px 10px 15px;
+	float:left;
+}
+
+
+p
+{	line-height: 20px;
+	float:left;
+	position:relative;
+	margin:5px 10px 5px 12px;
+	color:#666666;
+	font-weight:normal;
+
+}
+.title {
+	float:left;
+	font-family:Verdana,Geneva,sans-serif;
+	font-size:12px;
+	line-height:12px;
+	padding:0 7px;
+	width:240px;
+	font-weight:bold;
+	color:#666666;
+	margin-top:15px;
+
+	}
+
+.threecolumn {
+	border:0.5px dotted #339999;
+	width:255px;
+	border-width:1px;
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:12px;
+	color: #666666;
+	line-height: 18px;
+	float:left;
+	position:relative;
+	padding: 5px 5px;
+	margin:12px;
+	height:300px;
+	background:#ffffff;
+	overflow:hidden;
+}
+.index img {
+
+}
+.column-main {
+	border:0.5px dotted #339999;
+	width:550px;
+	border-width:1px;
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:12px;
+	color: #666666;
+	line-height: 18px;
+	float:left;
+	position:relative;
+	padding: 5px 5px;
+	margin:12px;
+	height:300px;
+	background:#ffffff;
+}
+
+.column-main h2 {
+	float:left;
+	font-family:Verdana,Geneva,sans-serif;
+	font-size:12px;
+	line-height:12px;
+	font-weight:bold;
+	color:#666666;
+	width: 100%;
+	margin:12px 10px 5px 12px;
+
+}
+.short {
+	height:150px;
+}
+
+
+.column-main#last {
+/*	margin-bottom:200px;*/
+}
+
+.column-display {
+	width:840px;
+	height:485px;
+	border:0.5px dotted #339999;
+	border-width:1px;
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:12px;
+	color: #666666;
+	line-height: 18px;
+	float:left;
+	position:relative;
+	margin:12px;
+	background:#ffffff;
+	padding: 5px 10px 15px;
+
+}
+
+.column-displaynav {
+	float:left;
+	font-family:Verdana,Geneva,sans-serif;
+	font-size:12px;
+	line-height:18px;
+	padding:5px;
+	position:absolute;
+	top:10px;
+	margin-top:31px;
+}
+	
+.seeall {
+	margin-top:-15px;
+}
+.slides {
+	padding-top:20px;
+}
+
+
+.photoalbum {
+	padding:3px;
+	margin:3px;
+	float:left;
+	width:260px;
+	border-width:1px;
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:12px;
+	color: #666666;
+	line-height: 18px;
+	float:left;
+	position:relative;
+	padding: 5px 5px;
+	margin:5px;
+	height:150px;
+	}
+
+/* twitter box */
+
+#twitter {
+	font-size: 100%;
+	line-height: 1.125em;
+	color: #333;
+	background-color: #fff;
+	word-wrap: break-word;
+}
+
+p, ul, input, button {
+	font-family:Verdana, Geneva, sans-serif;
+	}
+	
+.list-title	{
+	color:#666666;
+	font-weight:bold;
+	margin:12px 12px 9px;
+}
+	
+
+ul {
+	list-style-type: none;
+	margin-left:-27px;
+}
+
+li {
+	font-size:12px;
+	line-height:16px;
+	margin-top:10px;
+}
+
+img, a img {
+	border: 0;
+}
+
+div#container {
+	position: relative;
+	margin:0px;
+	padding:0px;
+	background-color: #ddd;
+}
+
+a.download {
+	font-weight: bold;
+	font-size: 1.1em;
+}
+
+
+.twitted {
+	/*width: 250px;
+	margin-bottom: 10px;
+	border: none;*/
+}
+.me {
+	margin:0px;
+}
+
+.threecolumn h2 {
+	float:left;
+	font-family:Verdana,Geneva,sans-serif;
+	font-size:12px;
+	line-height:12px;
+	padding:0 7px;
+	width:240px;
+	font-weight:bold;
+	color:#666666;
+}
+
+.threecolumn img {
+	margin:-6px;
+}
+.twitted p.preLoader {
+	margin: 0;
+	padding: 1em 1em 1em 3em;
+	background: transparent url("loader.gif") 1em center no-repeat;
+	/* generate your own loader gif: http://www.ajaxload.info */
+}
+
+.twitted ul#twitter_update_list {
+	margin: 0;
+	padding: 0 0.8em;
+	list-style-type: none;
+}
+
+.twitted ul#twitter_update_list li {
+	margin: 0;
+	padding: 0.8em 0 1em 0;
+	border-bottom: 1px solid #ccc;
+}
+
+.twitted ul#twitter_update_list li span {
+	/* tweet content */
+	display: block;
+}
+
+.twitted ul#twitter_update_list li span a {
+	/* links in tweet content */
+	color: #339999;
+}
+
+.twitted ul#twitter_update_list li a {
+	/* timestamp link */
+	color: #339999;
+	text-decoration:none;
+}
+
+.twitted ul#twitter_update_list li.firstTweet {
+}
+
+.twitted ul#twitter_update_list li.lastTweet {
+	border-bottom: none;
+}
+
+.twitted p.profileLink {
+	display: block;
+	margin: 0;
+	padding: 5px 70px 5px 12px;
+	color: #fff;
+	background-color: #fff;
+	position:absolute;
+	top:280px;
+}
+
+/*picasa stream */
+
+#picasaStream {
+	margin-left:auto;
+	margin-right:auto;
+	}
+#picasaStream img {
+	margin: 5px 5px 5px 15px;
+	}
+	
+/*google map */
+
+#whitebox {
+	background:none repeat scroll 0 0 #ffffff;
+	height:47px;
+	position:absolute;
+	top:260px;
+	width:244px;
+	z-index:2;
+}
+
+/* main navigator */
+	/*#main_navi {
+		float:left;
+		padding:0px !important;
+		margin:0px !important;
+	}
+	
+	#main_navi li {
+		clear:both;
+		color:#FFFFFF;
+		height:50px;
+		list-style-type:none;
+		padding:10px;
+		width:60px;
+		cursor:pointer;
+	}
+	
+	.main_navi img {
+		float:left;
+		margin-right:10px;
+	}
+	
+	.main_navi strong {
+		display:block;
+	}*/
+	
+	#main div.navi {
+		margin-left:250px;
+		cursor:pointer;
+	}
+
+/* main vertical scroll */
+	.display-main {
+		position:relative;
+		overflow:hidden;
+		height: 490px;
+	}
+	
+	/* root element for pages */
+	.display-pages {
+		position:absolute;
+		height:20000em;
+	}
+	
+	/* single page */
+	.display-page {
+		padding:10px;
+		height: 460px;
+		background:#ffffff;
+		width:675px;
+		position:relative;
+		float:left;
+		left:125px;
+	}
+	
+	/* root element for horizontal scrollables */
+	.scrollable {
+		position:relative;
+		overflow:hidden;
+		width: 675px;
+		height: 420px;
+	}
+	
+	/* root element for scrollable items */
+	.scrollable .display-items {
+		width:20000em;
+		position:absolute;
+		clear:both;
+	}
+	
+	/* single scrollable item */
+	.display-item {
+		float:left;
+		cursor:pointer;
+		width:675px;
+		/*height:4400px;*/
+	}
+	.display-items img {
+		width:655px;
+		height:400px;
+	}
+	.description {
+		height: 35px;
+	    overflow: hidden;
+	    padding-right: 20px;
+	    position: relative;
+	    text-align: right;
+	    width: 500px;
+		
+	}
+	
+	.description h1 {
+		font-size:10px;
+		margin:0px;
+	}
+	.description h3 {
+		font-style:italic;
+		font-size:10px;
+		font-weight:normal;
+		margin:0px;
+		line-height:15px;
+	}
+	.subdescription {
+ 		background: none repeat scroll 0 0 #FFFFFF;
+    	height: 47px;
+    	left: 13px;
+    	margin: 10px;
+    	opacity: 0.9;
+    	outline: 1px dotted #BFBFBF;
+    	overflow: hidden;
+    	padding: 5px 10px;
+    	position: relative;
+    	text-align: left;
+    	top: -75px;
+    	width: 564px;	
+		}
+	.subdescription h1 {
+		font-size:10px;
+		line-height:15px;
+		font-weight:normal;
+		margin:0px;
+	}
+
+	.thumb {
+		float:left;
+		height:150px;
+		margin:15px;
+		position:relative;
+		width:150px;
+		border:1px dotted #ffffff;
+
+	}
+	.thumb img {
+		margin:12px;
+
+	}
+	.thumb:hover {
+		border:1px dotted #339999;
+		}  /* mouse over link */
+	.thumb h1 {
+		color:#666666;
+		font-size:11px;
+		font-style:normal;
+		font-weight:normal;
+		margin-top:0px;
+		text-align:left;
+		margin-bottom:0px;
+		margin-left:15px;
+		}
+	.thumb h3 {
+		color:#666666;
+		font-size:8px;
+		font-style:italic;
+		font-weight:normal;
+		margin-top:0px;
+		text-align:left;
+		margin-left:15px;
+		line-height:12px;
+		}
+		
+
+/* get rid of those system borders being generated for A tags */
+a:active {
+  outline:none;
+}
+/*
+:focus {
+  -moz-outline-style:none;
+}*/
+
+.display-displaynav {
+	float:left;
+	position:relative;
+	width:820px;
+	height:420px;
+	
+}
+
+.column-display p{
+	position:relative;
+	width: 620px;
+	height:80px;
+	margin-left:40px;
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:12px;
+	font-weight:normal;
+	color:#666666;
+	margin:-5px 0 0;
+}
+
+.column-display h2 {
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:12px;
+	font-weight:bold;
+	color:#666666;
+	float:left;
+}
+
+/* blog */
+.recent-posts li {
+	line-height:18px;
+	border-bottom:1px solid #999999;
+	width:210px;
+}
+
+.post-title {
+	font-weight:bold;
+	line-height: 20px;
+}
+
+.post-date {
+	font-size:85%;
+	color:#666;
+}
+
+.posted ul#recent-posts li {
+	border-bottom:1px solid #CCCCCC;
+	margin:0;
+	padding:0.8em 0 1em;
+	width:220px;
+}
+
+
+#featurepost h1 {
+	background:none repeat scroll 0 0 #339999;
+	color:#ffffff;
+	float:left;
+	font-size:15px;
+	margin:0;
+	opacity:0.4;
+	filter:alpha(opacity=40);
+	position:absolute;
+	top:277px;
+	left:-1px;
+	width: 546px;
+	padding:8px;
+	z-index:4;
+
+}
+
+#featurepost img {
+	height:312px;
+	margin:-6px;
+	padding:0px;
+	width:562px;
+}
+
+/*#display-page0 {
+	visibility: hidden;
+}*/
+/*
+ #about {
+	 margin-bottom:2300px;
+ }
+
+/*sticky footer */
+#wrap {
+	min-height: 100%;
+	background:#f8f8f8;
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:12px;
+/*	padding-left: 60px;*/
+	padding-top: 0px;
+	border:0 none;
+	outline:0 none;
+	padding:0;
+	margin-left:auto;
+	margin-right:auto;	
+	width:1000px;
+	
+}
+
+#wrap-sub {
+  background-color: #F9F9F9;
+    margin-bottom: 150px;
+    padding-bottom: 200px;
+	}  /* must be same height as the footer */
+
+#footer {
+	/*border-top: 1px dotted #666666;*/
+    clear: both;
+    color: #666666;
+    font-family: Verdana,Geneva,sans-serif;
+    font-size: 12px;
+    height: 75px;
+    line-height: 10px;
+    margin-top: -75px;
+    padding-top: 1em;
+    position: relative;
+    width: 100%;
+    z-index: 200;
+/*	background:url(images/footer.gif) repeat-x;*/
+}	
+
+p.footme
+{
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:12px;
+	color: #B8DCE0;
+	line-height: 18px;
+}
+#leftside, #rightside
+{
+		width:380px;
+		float:right;
+		text-align:left;
+		margin-top:40px;
+		margin-right:40px;
+
+
+}
+
+
+
+/*Opera Fix*/
+body:before {/* thanks to Maleika (Kohoutec)*/
+content:"";
+height:100%;
+float:left;
+width:0;
+margin-top:-32767px;/* thank you Erik J - negate effect of float*/
+}
+
+
+
+/* IMPORTANT
+
+You also need to include this conditional style in the <head> of your HTML file to feed this style to IE 6 and lower and 8 and higher.
+
+<!--[if !IE 7]>
+	<style type="text/css">
+		#wrap {display:table;height:100%}
+	</style>
+<![endif]-->
+
+*/
+
+/* old footer
+#footer {
+	background-color:#FFFFFF;
+	border-top:1px dotted #666666;
+	bottom:0;
+	margin-top:40px;
+	padding:2px 0;
+	position:fixed;
+	width:100%;
+	z-index:200;
+	font-family:Verdana,Geneva,sans-serif;
+	font-size:12px;
+	line-height:10px;
+	margin:0 -102px;
+	padding:10px 85px;
+	outline:0 none;
+	vertical-align:baseline;
+}
+*/

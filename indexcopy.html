@@ -1,0 +1,484 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>emilyville</title>
+	
+<link href="styles.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="scrollable-navig.css" />
+
+
+<script src="http://cdn.jquerytools.org/1.2.5/full/jquery.tools.min.js">
+</script>
+<script src="jquery.dateFormat-1.0.js"></script>
+<script type="text/javascript" src="jquery.twitter.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	//toggle the componenet with class section-body
+	$(".section-head").click(function(){
+		$(this).next(".section-body").slideToggle('slow');
+	});
+	
+	// main horizontal scroll
+	$("#sketchbooks").scrollable({ circular: true }).navigator("#sketchbooks-navi");
+	$("#projects").scrollable({ circular: true, keyboard: 'false' }).navigator("#projects-navi");
+	
+	//hide the all of the element with class section-body
+	$(".section-body").hide();
+	
+	$("#twitter").getTwitter({
+					userName: "ofemilyville",
+					numTweets: 3,
+					loaderText: "Loading tweets...",
+					slideIn: true,
+					slideDuration: 750,
+					showHeading: true,
+					headingText: "Latest Tweets",
+					showProfileLink: true,
+					showTimestamp: true
+				});
+	
+	$.getJSON("https://picasaweb.google.com/data/feed/api/user/ofemilyville/albumid/5534964670102563809/?alt=json",
+              function(data){
+				  $.each(data.feed.entry, function(i,item){
+                  	if ( i == 6 ) return false;
+      			 	$("<img/>").attr(
+				  		"src", item.media$group.media$thumbnail[1].url).attr("width", 100).attr(
+							"height", 75).appendTo("#picasaStream");
+			   });
+	});
+	$.getJSON("http://www.emilyville.com/scribbler/?json=get_recent_posts&callback=?",
+			  function(data){
+				  $.each(data.posts, function(i, post){
+					  if ( i == 3) return;
+					  var $li = $("<li/>", {
+						  "class": "recent-post",
+					  });
+					  var $link = $("<a/>", {
+						  "href": post.url
+					  });
+					  $link.appendTo($li);
+					  var $title = $("<span/>", {
+					  		"class": "post-title",
+							"text": post.title
+					  });
+					  $title.appendTo($link);
+					  var $date = $("<span/>", {
+						  "class": "post-date",
+						  "text": $.format.date(post.date, " - MM-dd-yyyy")
+					  });
+					  $date.appendTo($link);
+					  $li.appendTo("#recent-posts");
+				  }); 
+	});
+});
+
+		</script>
+
+</head>
+
+<body>
+	<div id="header">
+		<a href="index.html">
+			<img src="images/emilyville-banner.png" />
+		</a>
+	</div>
+
+	<!-- updates -->
+		<div class="section-list">
+			<div class="section-head">
+				<img src="images/ligthbulb.png" />
+				Updates 
+				<div class="btnToggle btnClose btnOpen"></div>
+			</div>
+
+			<div class="section-body">
+				<!-- twitter -->
+				<div class="threecolumn">
+					<div id="twitter">
+						<a href="http://creativecommons.org/licenses/by-nc/3.0/" rel="license"><img src="http://i.creativecommons.org/l/by-nc/3.0/80x15.png" alt="Creative Commons License" />
+						</a>
+						<p>Licensed under a Creative Commons Attribution-Non-Commercial 3.0 Unported License</p>
+					</div>
+				</div>
+				<!-- google maps -->
+				<div class="threecolumn">
+					<div class="title">
+                    	Where am I now?
+                    </div>
+                    <br />
+					<!-- Google Public Location Badge -->
+					<iframe src="http://www.google.com/latitude/apps/badge/api?user=-611110178206640106&type=iframe&maptype=satellite&z=10" width="245" height="260" frameborder="0"></iframe>
+					<!-- To disable location sharing, you *must* visit https://www.google.com/latitude/apps/badge and disable the Google Public Location badge. Removing this code snippet is not enough! -->
+					<div id="whitebox">
+					&nbsp;
+					</div>
+				</div>
+			    <!-- picasa web -->    
+                <div class="threecolumn">
+                	<div class="title"> 
+                    	recent photos 
+                    </div>
+                	<div id="picasaStream"></div>
+            	</div>
+			</div>
+		</div>
+	<!-- blog -->
+		<div class="section-list">
+			<div class="section-head">
+	    		<img src="images/rss.png" />
+        		Scribbler 
+                <div class="btnToggle btnClose btnOpen"></div>
+
+            </div>
+			<div class="section-body">
+    	    	<div class="column-main">
+                	<!-- feature --> 
+                    <div id="featurepost">                   
+                    	<h1> Feature Post </h1>
+                		<img class="photoalbum" src="images/featuredimage.jpg" />
+                			
+            		</div>
+                </div>
+                <!-- post history -->                    
+             	<div class="threecolumn">
+                	<div class="description">
+                        <img src="images/scribblermenu.png" />
+                        <div>
+                			<p>Scribbler is a place to play, make stories, explore the day-to-day, and otherwise stay engaged in this vast thing called the internet. </p>
+                        </div>
+                        <div class="list-title">Most recent posts:</div>
+                			<div class="posted">
+                				<ul id="recent-posts"></ul>
+							</div>
+                		</div>
+					</div>
+				</div>
+        	</div>
+
+
+        <!-- sketchbooks -->
+			<div class="section-list">
+				<div class="section-head">
+        			<img src="images/sketchbooks.png" />
+        			Sketchbooks 
+					<div class="btnToggle btnClose btnOpen"></div>
+                </div>
+              
+                <div class="section-body">
+					<div class="column-display">
+                		<div class="display-main">
+
+							<!-- root element for pages -->
+							<div class="display-pages">
+                                <div class="display-displaynav">    	
+									<!-- page #1 -->
+									<div class="display-page">
+	
+										<!-- inner scrollable #1 -->
+										<div class="scrollable" id="sketchbooks">
+
+											<!-- root element for scrollable items -->
+											<div class="display-items items next">
+
+												<!-- items  -->
+												<div class="display-item">
+                    								<img src="images/sketchbooks/emilyville1_1.jpg" />
+												</div>
+   												<div class="display-item">
+                    								<img src="images/sketchbooks/emilyville1_2.jpg" />
+												</div>
+												<div class="display-item">
+                    								<img src="images/sketchbooks/emilyville1_3.jpg" />
+												</div>
+   												<div class="display-item">
+                    								<img src="images/sketchbooks/emilyville1_4.jpg" />
+												</div>                                                
+												<div class="display-item">
+                    								<img src="images/sketchbooks/emilyville1_5.jpg" />
+												</div>
+   												<div class="display-item">
+                    								<img src="images/sketchbooks/emilyville1_6.jpg" />
+												</div>												
+												<div class="display-item">
+                    								<img src="images/sketchbooks/emilyville1_7.jpg" />
+												</div>
+   												
+                                                <div class="display-item">
+                    								<img src="images/sketchbooks/emilyville2_1.jpg" />
+												</div>
+   												<div class="display-item">
+                    								<img src="images/sketchbooks/emilyville2_2.jpg" />
+												</div>
+																								<div class="display-item">
+                    								<img src="images/sketchbooks/emilyville2_5.jpg" />
+												</div>
+   												<div class="display-item">
+                    								<img src="images/sketchbooks/emilyville2_6.jpg" />
+												</div>												
+												<div class="display-item">
+                    								<img src="images/sketchbooks/emilyville2_7.jpg" />
+												</div>                  
+											</div>
+										</div>
+									</div>
+        
+                                	
+                                    <!-- sub navigator #1 -->
+									<div class="navi" id="sketchbooks-navi">
+									</div> 
+                                </div>  
+                                <div class="display-lowercontent">
+									<!-- project title -->
+									<h2>
+            							Title of Project
+            						</h2>
+            	
+            						<!-- project description -->
+            						<p>
+            							This project was created by a million oompah loompahs. It was great fun! And that's all I will say about it. All oompah loompahs involved have asked to remain anonymous.
+            						</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="section-body">
+					<div class="threecolumn-short">
+                		<img src="images/sketchbooks/emilyville1_1.jpg" class="photoalbum" height="145px" width="250px" />
+					</div>
+                	<div class="threecolumn-short">
+                		<img src="images/sketchbooks/emilyville1_2.jpg" class="photoalbum" height="145px" width="250px" />
+					</div>
+                	<div class="threecolumn-short">
+                        	<img src="images/sketchbooks/emilyville1_3.jpg" class="photoalbum" height="145px" width="250px" />
+                        </div>
+                        <div class="threecolumn-short">
+                        	<img src="images/sketchbooks/emilyville1_4.jpg" class="photoalbum" height="145px" width="250px" />
+                        </div>
+                        <div class="threecolumn-short">
+                        	<img src="images/sketchbooks/emilyville1_5.jpg" class="photoalbum" height="145px" width="250px" />
+                        </div>
+                        <div class="threecolumn-short">
+                        	<img src="images/sketchbooks/emilyville1_6.jpg" class="photoalbum" height="145px" width="250px" />
+                        </div>
+                        <div class="threecolumn-short">
+                        	<img src="images/sketchbooks/emilyville2_1.jpg" class="photoalbum" height="145px" width="250px" />
+                        </div>
+                        <div class="threecolumn-short">
+                        	<img src="images/sketchbooks/emilyville2_2.jpg" class="photoalbum" height="145px" width="250px" />
+                        </div>
+                        <div class="threecolumn-short">
+                        	<img src="images/sketchbooks/emilyville2_5.jpg" class="photoalbum" height="145px" width="250px" />
+                        </div>
+                        <div class="threecolumn-short">
+                        	<img src="images/sketchbooks/emilyville2_6.jpg" class="photoalbum" height="145px" width="250px" />
+                        </div>
+                        <div class="threecolumn-short">
+                        	<img src="images/sketchbooks/emilyville2_7.jpg" class="photoalbum" height="145px" width="250px" />
+                        </div>
+					</div> 
+        		</div>
+        	<!-- projects -->
+				<div class="section-list">
+					<div class="section-head">
+        				<img src="images/projects.png" />
+        				projects 
+						<div class="btnToggle btnClose btnOpen"></div>
+                	</div>
+					<div class="section-body">
+						<div class="column-display">
+                			<div class="display-main">
+
+								<!-- root element for pages -->
+								<div class="display-pages">
+                                	<div id="display-main">
+		<!-- page #1 -->
+		<div class="display-page">
+			<div class="scrollable">
+					<!-- items  -->
+					<div class="display-item">
+						<img src="images/project-folder/project_thumb_1.png" class="thumb">
+						<img src="images/project-folder/project_thumb_2.png" class="thumb">
+						<img src="images/project-folder/project_thumb_3.png" class="thumb">
+						<img src="images/project-folder/project_thumb_4.png" class="thumb">
+						<img src="images/project-folder/project_thumb_5.png" class="thumb">
+						<img src="images/project-folder/project_thumb_6.png" class="thumb">
+						<img src="images/project-folder/project_thumb_7.png" class="thumb">
+						<img src="images/project-folder/project_thumb_8.png" class="thumb">
+						<img src="images/project-folder/project_thumb_9.png" class="thumb">
+						<img src="images/project-folder/project_thumb_10.png" class="thumb">
+						<img src="images/project-folder/project_thumb_11.png" class="thumb">
+						<img src="images/project-folder/project_thumb_12.png" class="thumb">
+					</div>
+			</div>
+		</div>
+		<!-- page #2 -->
+		<div class="display-page">
+			<!-- inner scrollable #2 -->
+			<div class="scrollable">
+				<!-- root element for scrollable items -->
+				<div class="display-items">
+					<!-- items on the second page -->
+					<div class="display-item">
+						<img src="images/project-folder/project_4.png" />
+					</div>
+					<div class="display-item">
+						<img src="images/project-folder/project_4_d1.png" />
+					</div>
+					<div class="display-item">
+						<img src="images/project-folder/project_4_d2.png" />
+					</div>
+					<div class="display-item">
+						<img src="images/project-folder/project_4_d3.png" />
+					</div>
+				</div>
+
+			</div>
+            			<div class="navi"></div>
+
+
+		</div>
+        <!-- page #3 -->
+		<div class="display-page">
+			<!-- inner scrollable #2 -->
+			<div class="scrollable">
+				<!-- root element for scrollable items -->
+				<div class="display-items">
+					<!-- items on the second page -->
+					<div class="display-item">
+						<img src="images/project-folder/project_4.png" />
+					</div>
+					<div class="display-item">
+						<img src="images/project-folder/project_4_d1.png" />
+					</div>
+					<div class="display-item">
+						<img src="images/project-folder/project_4_d2.png" />
+					</div>
+					<div class="display-item">
+						<img src="images/project-folder/project_4_d3.png" />
+					</div>
+				</div>
+			</div>
+			<div class="navi"></div>
+		</div>
+	</div>
+
+                                        
+            							<!-- sub navigator #1 -->
+										<div class="navi" id="projects-navi"></div>
+        
+            							<!--display nav --> 
+                                		<div class="column-displaynav">
+											<!-- main navigator -->
+											<ul id="main_navi">
+												<li class="active">
+													<img src="images/seeall.png">
+												</li>
+												<li>
+        											<img src="images/previousalbum.png">
+												</li>
+												<li>
+													<img src="images/nextalbum.png">		
+												</li>
+												</ul>
+                                    	</div>    
+                                	</div>  
+                                	<div class="display-lowercontent">
+										<!-- project title -->
+										<div class="display-description-title">
+            								Title of Project
+            							</div>
+            	
+            	
+            						<!-- project description -->
+            						<div class="display-description">
+            							This project was created by a million oompah loompahs. It was great fun!
+            						</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					</div>  
+				</div>
+        
+        <!-- contact -->
+			<div class="section-list">
+				<div class="section-head">
+        			<img src="images/contact.png" />
+        			contact
+					<div class="btnToggle btnClose btnOpen"></div>
+                </div>
+				<div class="section-body">
+					<div class="column-main">
+                    hello, this is how you can reach me.
+                    </div>
+                    <div class="threecolumn">
+                    What are good reasons to contact me?
+                    </div>
+				</div>
+        	</div>
+        	<!-- about -->
+				<div class="section-list">
+					<div class="section-head">
+        				<img src="images/about.png" />
+        				about
+					<div class="btnToggle btnClose btnOpen"></div>
+				</div>
+				<div class="section-body">
+                    <div class="threecolumn">
+                    a picture of me.
+                    </div>
+                    <div class="column-main" id="last">
+                    hello, this is all about me.
+                    </div>
+				</div>
+                    <br />
+                    <br />        	
+			</div>
+    	</div>
+    	<div id="footer">
+    		&copy; emily wright moore 2010
+    	</div>
+</div>
+<script>
+// What is $(document).ready ? See: http://flowplayer.org/tools/documentation/basics.html#document_ready
+$(document).ready(function() {
+
+
+
+// main vertical scroll
+$("#display-main").scrollable({
+
+	// basic settings
+	vertical: true,
+
+	// up/down keys will always control this scrollable
+	keyboard: 'static',
+
+	// assign left/right keys to the actively viewed scrollable
+	onSeek: function(event, i) {
+		horizontal.eq(i).data("scrollable").focus();
+	}
+
+// main navigator (thumbnail images)
+}).navigator("#main_navi");
+
+// horizontal scrollables. each one is circular and has its own navigator instance
+var horizontal = $(".scrollable").scrollable({ circular: true }).navigator(".navi");
+
+
+// when page loads setup keyboard focus on the first horzontal scrollable
+horizontal.eq(0).data("scrollable").focus();
+
+});
+</script>
+
+</body>
+
+</html>
+
+
