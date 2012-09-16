@@ -511,7 +511,7 @@ a.download {
 	}
 	.subdescription {
  		background: none repeat scroll 0 0 #FFFFFF;
-    	height: 47px;
+    	height: 70px;
     	left: 13px;
     	margin: 10px;
     	opacity: 0.9;
@@ -520,14 +520,14 @@ a.download {
     	padding: 5px 10px;
     	position: relative;
     	text-align: left;
-    	top: -75px;
-    	width: 564px;	
+    	top: -80px;
+    	width: 595px;	
 		}
 	.subdescription h1 {
-		font-size:10px;
-		line-height:15px;
-		font-weight:normal;
-		margin:0px;
+	    font-size: 12px;
+	    font-weight: lighter;
+	    line-height: 1.4em;
+	    margin: 0;
 	}
 
 	.thumb {
